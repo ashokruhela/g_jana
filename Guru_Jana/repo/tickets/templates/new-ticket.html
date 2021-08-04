@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="noindex">
+      <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="/static/js/anytime.5.2.0.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="/static/css/anytime.5.2.0.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/static/css/custom-datePicker.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <style>
+    body{
+      font-family: 'Montserrat';
+    }
+    #headingDiv{
+      top: 15px;
+      font-weight:bolder;
+      font-size: 30px;
+    }
+    .deptSelect{
+      border: none; 
+      width: auto;
+    }
+    #departmentDiv{
+      width: 55%;
+      border:1px solid black;
+      border-radius: 5px;
+    }
+    .btnStyle{
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border-radius: 50%;
+        border: none;
+    }
+    input, textarea{
+        color: #111 !important;
+    }
+ </style>
+ <body>
+    <div style="width: 80%;">
+       <div style="position: absolute;left: 10%;" class="container">
+          <br>
+          <div id="headingDiv">
+              <p id="heading">New Ticket</p>
+          </div><br>
+          <div id="form" class="form-group">
+             <div class="row">
+              <div id="typeDiv" class="col-md-6">
+                  <label for="type">Type</label>
+                  <select id="type" class="form-control">
+                      <option value="Service">Service</option>
+                      <option value="Support">Support</option>
+                      <option value="Modify">Modify</option>
+                      <option value="Escalation/Grievance">Escalation/Grievance</option>
+                  </select>
+              </div>
+              <div id="existingTicketDiv" style="display: none;" class="col-md-6">
+                  <label for="existingTicket">Existing Ticket</label>
+                  <input type="text" class="form-control" id="existingTicket" placeholder="Ticket number or title search">
+              </div>
+             </div>
+             <br>
+             <div>
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" maxlength="100">
+             </div>
+             <br>
+             <div>
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" rows="5"></textarea>
+             </div>
+             <br>
+             <div class="row">
+                <div class="col-md-6">
+                   <label for="client">Client</label>
+                   <input type="text" id="client" placeholder="Name Search" class="form-control">
+                </div>
+                <br>
+                <div class="col-md-6">
+                   <label style="margin-top: 5px;"><input type="checkbox" id="umbrellaService" onchange="checkAll()">&nbsp;Umbrella Service</label>
+                </div>
+             </div>
+             <br>
+             <label>Department</label>
+             <div id="departmentDiv">
+                 <div class="row" style="margin-top: 15px;">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="corporateAccountingSolutions" class="pull-right"> 
+                  </div>
+                  <div class="col-md-7">
+                      Corporate Accounting Solutions
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" id="cas">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+                 <div class="row">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="corporateLaw" class="pull-right">
+                  </div>
+                  <div class="col-md-7">
+                      Corporate Law
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" id="cl">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+                 <div class="row">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="directTax" class="pull-right">
+                  </div>
+                  <div class="col-md-7">
+                      Direct Tax
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" id="dt">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+                 <div class="row">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="indirectTax" class="pull-right">
+                  </div>
+                  <div class="col-md-7">
+                      Indirect Tax
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" id="it">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+                 <div class="row">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="auditAndAssurance" class="pull-right">
+                  </div>
+                  <div class="col-md-7">
+                      Audit and Assurance
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" class="pull-right" id="aaa">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+                 <div class="row">
+                  <div class="col-md-1">
+                      <input type="checkbox" id="consulting" class="pull-right">
+                  </div>
+                  <div class="col-md-7">
+                      Consulting
+                  </div>
+                  <div class="col-md-3">
+                      <select class="form-control deptSelect" id="c">
+                          <option>Department Head</option>
+                      </select>
+                  </div>
+                 </div><br>
+             </div><br>
+             <div class="row">
+                 <div class="col-md-6">
+                     <label for="frequency">Frequency</label>
+                     <select id="frequency" class="form-control">
+                       <option>One Time</option>
+                       <option>Repeat</option>
+                     </select>
+                 </div>
+                 <div class="col-md-3"><br>
+                     <select class="form-control" id="frequencyRate" style="margin-top:5px;display: none;">
+                         <option>Weekly</option>
+                         <option>Biweekly</option>
+                         <option selected="selected">Monthly</option>
+                         <option>Quarterly</option>
+                         <option>9-Monthly</option>
+                         <option>Yearly</option>
+                     </select>
+                 </div>
+                 <div class="col-md-3" id="startDateDiv" style="display: none;">
+                     <label for="startDate">Effective Start Date</label>
+                     <input type="text" id="startDate" name="" value="2020-01-30" class="form-control" style="width: auto;">
+                 </div>
+             </div><br>
+             <div>
+                 <label for="datePicker">Due Date</label>
+                 <input id="datePicker" type="text" name="" value="2020-01-29" placeholder="YYYY-MM-DD" class="form-control" style="width: auto;">
+             </div><br>
+             <div>
+                 <label for="file">File</label>
+                 <input type="file" id="file" class="form-control" accept="image/*, .pdf, .doc, .docx, .xls, .csv, .xlsx">
+             </div><br><br><br>
+             <div class="row" style="text-align: center;">
+                 <div class="col-md-6">
+                     <button class="btnStyle" onclick="cancelForm()" style="background-color: #d9534f;float:right"><i class="fa fa-close" style="font-size:24px;color: white;"></i></button>
+                 </div>
+                 <div class="col-md-6">
+                     <button class="btnStyle" onclick="submitForm()" style="background-color: #449d44;float: left;"><i class="fa fa-check" style="font-size:24px;color: white;"></i></button>
+                 </div>
+             </div><br>
+          </div>
+       </div>
+    </div>
+ </body>
+
+ <script>
+     $(document).ready( function() {
+              var dt = new Date();
+              var year = dt.getFullYear();
+              var month = dt.getMonth() + 1;
+              var next_month = month + 1;
+              
+              if (month <= 9) {
+                  month = "0" + String(month);
+              }
+              var day = dt.getDate();
+              if (day <= 9) {
+                  day = "0" + String(day);
+              }
+
+              $("#datePicker").val(year + "-" + month + "-" + day);
+
+              if (next_month > 12) {
+                  year += 1
+                  next_month = '01'
+              } else if(next_month <= 9) {
+                  next_month = "0" + String(next_month);
+              }
+              $("#startDate").val(year + "-" + next_month + "-" + "01")
+
+              AnyTime.picker( "datePicker", {format: "%Y-%m-%d", earliest: new Date()});
+              AnyTime.picker( "startDate", {format: "%Y-%m-%d", earliest: new Date()});
+          });
+
+     $('#frequency').on('change', function() {
+          if($('#frequency').val()=='Repeat'){
+              $('#frequencyRate').show()
+              $('#startDateDiv').show()
+          }
+          else{
+              $('#frequencyRate').hide()
+              $('#startDateDiv').hide() 
+          }
+     });
+
+     $('#type').on('change', function() {
+          if($('#type').val()=='Modify' || $('#type').val()=='Escalation/Grievance'){
+              $('#existingTicketDiv').show()
+          }
+          else{
+              $('#existingTicketDiv').hide()
+          }
+     });
+
+     function checkAll(){
+         if(document.getElementById('umbrellaService').checked==true){
+              document.getElementById('corporateAccountingSolutions').checked=true;
+              document.getElementById('corporateLaw').checked=true;
+              document.getElementById('directTax').checked=true;
+              document.getElementById('indirectTax').checked=true;
+              document.getElementById('auditAndAssurance').checked=true;
+              document.getElementById('consulting').checked=true;
+         }
+         else{
+              document.getElementById('corporateAccountingSolutions').checked=false;
+              document.getElementById('corporateLaw').checked=false;
+              document.getElementById('directTax').checked=false;
+              document.getElementById('indirectTax').checked=false;
+              document.getElementById('auditAndAssurance').checked=false;
+              document.getElementById('consulting').checked=false;
+         }
+     }
+
+     var validateBoolean=true
+     function validateForm(){
+         if($('#type').val()=='Modify' || $('#type').val()=='Escalation/Grievance'){
+             if($('#existingTicket').val()==""){
+                 validateBoolean=false
+             }
+         }
+         if($('#title').val()==""){
+             validateBoolean=false
+         }
+         if($('#description').val()==""){
+             validateBoolean=false
+         }
+         if($('#client').val()==""){
+             validateBoolean=false
+         }
+     }
+
+     function submitForm(){
+         validateForm();
+         if(!validateBoolean){
+             alert("Please fill all required fields!")
+         }
+         else{
+              post_data = {
+                  'type'                          : $('#type').val(),
+                  'existingTicket'                : $('#existingTicket').val(),
+                  'title'                         : $('#title').val(),
+                  'description'                   : $('#description').val(),
+                  'client'                        : $('#client').val(),
+                  'frequency'                     : $('#frequency').val(),
+                  'frequencyRate'                 : $('#frequencyRate').val(),
+                  'start_date'                    : $('#startDate').val(),
+                  'due_date'                      : $('#datePicker').val(),
+                  'file'                          : $('#file').val(),
+              }
+              if(document.getElementById('corporateAccountingSolutions').checked==true){
+                  post_data['department-cas'] = $('#cas').val()
+              }
+              if(document.getElementById('corporateLaw').checked==true){
+                  post_data['department-cl'] = $('#cl').val()
+              }
+              if(document.getElementById('directTax').checked==true){
+                  post_data['department-dt'] = $('#dt').val()
+              }
+              if(document.getElementById('indirectTax').checked==true){
+                  post_data['department-it'] = $('#it').val()
+              }
+              if(document.getElementById('auditAndAssurance').checked==true){
+                  post_data['department-aaa'] = $('#aaa').val()
+              }
+              if(document.getElementById('consulting').checked==true){
+                  post_data['department-c'] = $('#c').val()
+              }
+              $.post("/tickets/create", 
+                  post_data,
+                  function(response_data){
+
+                  }
+              );
+         }
+     }
+
+     function cancelForm(){
+         window.location.href=""
+     }
+
+      $(function(){
+          $("#existingTicket").keyup(function(){
+              var val = $(this).val().trim();
+              val = val.replace(/\s+/g, '');
+              if(val.length % 3 == 0){
+                  console.log("3 characters entered")
+              }
+          });      
+      });
+
+      $(function(){
+          $("#client").keyup(function(){
+              var val = $(this).val().trim();
+              val = val.replace(/\s+/g, '');
+              if(val.length % 3 == 0){
+                  console.log("3 characters entered")
+              }
+          });      
+      });
+
+      $('#file').bind('change', function() {
+            if(this.files[0].size/1024/1024 > 5 ){
+                alert("file size is too large")
+                $('#file').val('');
+            }
+      });
+ </script>
+</html>

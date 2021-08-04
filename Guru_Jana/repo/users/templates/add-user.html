@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        body{
+            font-family: 'Montserrat';
+        }
+        #containerDiv{
+            margin-top: 5%;
+            border: #dadce0 1.5px solid;
+            border-radius: 5px;
+            padding-bottom: 5%;
+        }
+        .buttonStyle{
+            color: #fff;
+            height: 30px;
+            width: 60px;
+            background-color: #27A3E2;
+            border: none;
+            border-radius: 5px;
+        }
+        #buttonDiv{
+            padding-top: 10%;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div>
+            <div class="container" id="containerDiv">
+                <br>
+                <div id="heading" style="text-align: center;">
+                    <h1>Add User</h1>
+                </div><br><br>
+                <div id="addUserForm" class="row">
+                    <div class="col-sm-6">
+                     <div class="row">
+                        <div class="col-sm-3">
+                            <label for="fullName">Full Name:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="fullName">
+                        </div>  
+                     </div><br><br>
+                     <div class="row">
+                        <div class="col-sm-3">
+                            <label for="userName">Username:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="userName">
+                        </div>  
+                     </div><br><br>
+                     <div class="row">
+                        <div class="col-sm-3">
+                            <label for="department">Department:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <select id="department" class="form-control">
+
+                            </select>
+                        </div>  
+                     </div><br>   
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                           <div class="col-sm-3">
+                               <label for="email">Email:</label>
+                           </div>
+                           <div class="col-sm-9">
+                               <input type="text" class="form-control" id="email">
+                           </div>  
+                        </div><br><br>
+                        <div class="row">
+                           <div class="col-sm-3">
+                               <label for="password">Password:</label>
+                           </div>
+                           <div class="col-sm-9">
+                               <input type="password" class="form-control" id="password">
+                           </div>  
+                        </div><br><br>
+                        <div class="row">
+                           <div class="col-sm-3">
+                               <label for="phoneNo">Phone No:</label>
+                           </div>
+                           <div class="col-sm-9">
+                               <input type="text" class="form-control" id="phoneNo">
+                           </div>  
+                        </div><br>  
+                       </div>
+                       <div id="buttonDiv">
+                           <button id="cancel" onclick="" class="buttonStyle">Cancel</button>
+                           <button id="save" onclick="" class="buttonStyle">Save</button>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        $(document).ready(function(){
+            $('#phoneNo').keypress(validateNumber);
+        });
+        function validateNumber(event) {
+            var key = window.event ? event.keyCode : event.which;
+            if (event.keyCode === 8 || event.keyCode === 46) {
+                return true;
+            } else if ( key < 48 || key > 57 ) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+    </script>
+</html>

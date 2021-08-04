@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/anytime.5.2.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/anytime.5.2.0.min.css">
+        <link rel="stylesheet" href="/static/css/custom-datePicker.css">
+    </head>
+
+    <style>
+        body{
+        font-family: 'Montserrat';
+        }
+
+        #headingDiv{
+        top: 15px;
+        font-weight:bolder;
+        font-size: 30px;
+        }
+        #searchFormDiv{
+            width: inherit;
+            border: #27A3E2 1px solid;
+            border-radius: 5px;
+            left: 10%;
+            background-color: #F5F5F5;
+        }
+        .formLabel{
+            float: right;
+            /* margin-right: 5%; */
+        }
+        #search_ticket_btn_container {
+            width: inherit;
+		}
+        .collapsible {
+			border: none;
+			background-color: #27A3E2;
+			border-radius: 5px;
+			cursor: pointer;
+			text-align: left;
+			padding: 12px;
+			width: inherit;
+			font-size: 16px;
+			color: white;
+			outline: none;
+            margin-bottom: 2px;
+		}
+        li{
+            margin-top: 8px;
+            margin-bottom: 8px;
+            color: black;
+        }
+        li:hover {
+            color: #27A3E2;
+        }
+        #clientList{
+            list-style-type:none;
+            margin-left: -22%;
+            margin-top: 12px;
+        }
+        #tableHead{
+            background-color: #27A3E2; 
+            color: white;
+            font-weight: 900;
+            padding-top: 8px;
+            width: 105%;
+            border-radius: 5px;
+        }
+        #tableContent{
+            font-weight: 600; 
+            border-left:#27A3E2 1px solid;
+            width: 105%;
+        }
+        #clientListDiv{
+            border-top: #27A3E2 1px solid; 
+            margin-left: -110px;
+        }
+        #searchButton{
+            font-size: 16px;
+            color: #fff;
+            background-color: #27A3E2;
+            border: none;
+            display: block;
+            width: 115px;
+            height: 40px;
+            margin: 0px auto 0px auto;
+            border-radius: 5px;
+        }
+        @media only screen and (max-width: 1350px) and (min-width: 990px){
+            #clientList{
+                margin-left: 25% !important;
+            }
+        }
+
+    </style>
+
+    <body>
+        <div>
+            <div id="containerDiv" class="container">
+                <br>
+                <div id="headingDiv">
+                    <p id="heading">List Tickets</p>
+                </div><br>
+                <div id="search_ticket_btn_container">
+                    <button type="button" class="collapsible">Search Tickets<span id="accordian" style="float: right;">-</span></button>
+                </div>
+                <div id="searchFormDiv">
+                    <br><br>
+                    <div class="row" style="width: 100%;margin-left: 2%;">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="title" class="formLabel">Title</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="title" class="form-control">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="client" class="formLabel">Client</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="client" class="form-control">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="type" class="formLabel">Type</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="type" class="form-control">
+                                        <option value="Service">Service</option>
+                                        <option value="Support">Support</option>
+                                        <option value="Modify">Modify</option>
+                                        <option value="Escalation/Grievance">Escalation/Grievance</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="assignTo" class="formLabel">Assign To</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="assignTo" class="form-control">
+                                        <option>Department Head</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="id" class="formLabel">ID</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="id" class="form-control">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="department" class="formLabel">Department</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="department" class="form-control">
+                                        <option>Select</option>
+                                        <option>Corporate Accounting Solutions</option>
+                                        <option>Corporate Law</option>
+                                        <option>Direct Tax</option>
+                                        <option>Indirect Tax</option>
+                                        <option>Audit and Assurance</option>
+                                        <option>Consulting</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="frequency" class="formLabel">Frequency</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="frequency" class="form-control">
+                                        <option>One Time</option>
+                                        <option>Repeat</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="dueDateDiv" class="formLabel">Due Date</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-6">
+                                        <input id="dueDateFrom" type="text" placeholder="from" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="dueDateTo" type="text" placeholder="to" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <button id="searchButton" onclick="">Search</button>
+                    <br>
+                </div>
+                <br><br>
+                <div id="searchListDiv" class="row">
+                    <div class="col-sm-2" id="clientListDiv"><br>
+                        <input type="text" class="form-control" placeholder="client">
+                        <ul id="clientList">
+                            <li>###Client 1###</li>
+                            <li>###Client 2###</li>
+                            <li>###Client 3###</li>
+                            <li>###Client 4###</li>
+                            <li>###Client 1###</li>
+                            <li>###Client 2###</li>
+                            <li>###Client 3###</li>
+                            <li>###Client 4###</li>
+                            <li>###Client 1###</li>
+                            <li>###Client 2###</li>
+                            <li>###Client 3###</li>
+                            <li>###Client 4###</li>
+                        </ul>
+                    <br>
+                    </div>
+                    <div class="col-sm-11">
+                        <div id="tableHead" class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    <p>ID</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>Title</p>
+                                    <p style="font-weight: 500; margin-top: -10px;">Status</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>Due Date</p>
+                                    <p style="font-weight: 500; margin-top: -10px;">Type</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>Added By</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tableContent" class="row">
+                            <div class="col-sm-12" style="background-color:#ebeaea;padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1122</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Flipkart</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>15 Feb 20</p>
+                                    <p style="font-weight: 550;">Service</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Amazon</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Support</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="background-color:#ebeaea; padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Ebay</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Modify</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Snapdeal</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Escalation/Grievance</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="background-color:#ebeaea; padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Ebay</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Modify</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Ebay</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Modify</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="background-color:#ebeaea; padding-top: 8px;">
+                                <div class="col-sm-2">
+                                    <p>#1123</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>GST tax invoice for Ebay</p>
+                                    <p style="font-weight: 550;">In Progress</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>16 Feb 20</p>
+                                    <p style="font-weight: 550;">Modify</p>
+                                </div>
+                                <div class="col-sm-2">
+                                    <p>saurabh</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    </body>
+
+    <script>
+        $(document).ready(function() {
+            AnyTime.picker( "dueDateFrom", {format: "%Y-%m-%d", earliest: new Date()});
+            AnyTime.picker( "dueDateTo", {format: "%Y-%m-%d", earliest: new Date()});
+
+            $("#search_ticket_btn_container").click(function() {
+				if ( $("#searchFormDiv").css("display") === "block" ) {
+					$("#searchFormDiv").css("display", "none");
+					$("#accordian").text("+");
+				} else {
+					$("#searchFormDiv").css("display", "block");
+					$("#accordian").text("-");
+				}
+			});
+        });
+    </script>
+</html>

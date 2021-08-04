@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        body{
+            font-family: 'Montserrat';
+        }
+        #editButton{
+            border:none;
+            color:#27A3E2;
+            background-color: white;
+            float:left;
+        }
+        .buttonStyle{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: none;
+        }
+        .headingDiv{
+            background-color:#27A3E2;
+            color: white;
+            margin-bottom: 1%;
+            border-radius: 3px;
+            padding-left: 1%;
+            padding-top: 2px;
+        }
+        .divStyle{
+            border: #27A3E2 1px solid;
+            border-radius: 5px;
+            background-color: #F5F5F5;
+            padding-top: 1%;
+        }
+        .divStyle2{
+            background-color: #F5F5F5;
+            border: #27A3E2 1px solid;
+            border-radius: 5px;
+            margin-top: 11.2%;
+            padding-top: 1%;
+            padding-bottom: 0.5%;
+        }
+        #id, #title {
+            font-size: 16px;
+        }
+        #title{
+            float: left;
+        }
+    </style>
+    <body>
+        <div class="container" style="width:80%">
+            <br><br>
+            <div class="col-sm-9">
+                <div class="container-fluid" style="background-color:#dedcdc; padding-top:1%; border-radius: 5px;">
+                    <div class="row" style="font-weight: 700;">
+                        <div class="col-sm-2">
+                            <p id="id">#Ticket_No<span> -</span></p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p id="title">GST tax invoice for Flipkart</p>
+                        </div>
+                        <div class="col-sm-1">
+                            <button id="editButton">Edit</button>
+                        </div>
+                    </div>
+                    <p id="client">Client Name</p>
+                </div>
+                <br>
+                <div class="headingDiv">
+                    <label>Details</label>
+                </div>
+                <div id="detailsDiv" class="container-fluid divStyle">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label>Type:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <p id="type">Service</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <label>Status:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <p id="status">In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="headingDiv">
+                    <label>Description</label>
+                </div>
+                <div class="container-fluid divStyle">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p id="description">Due to the requirements for the new project new employees are added to the organization and this lis to be updated in the records.Due to the requirements for the new project new employees are added to the organization and this lis to be updated in the records</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="headingDiv">
+                    <label>Department Tickets</label>
+                </div>
+                <div class="container-fluid divStyle">
+                    <div class="row">
+                        <div id="departmentTicketsDiv" class="col-sm-12">
+                            <ol>
+                                <li><span>#Ticket-No</span> <span>/</span> <span>Department</span> <span style="float:right">Status: Pending	(Assignee)</span></li>
+                                <li><span>#Ticket-No</span> <span>/</span> <span>Department</span> <span style="float:right">Status: Pending	(Assignee)</span></li>
+                                <li><span>#Ticket-No</span> <span>/</span> <span>Department</span> <span style="float:right">Status: Pending	(Assignee)</span></li>
+                                <li><span>#Ticket-No</span> <span>/</span> <span>Department</span> <span style="float:right">Status: Pending	(Assignee)</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="headingDiv">
+                    <label>Comments</label>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <textarea id="comments" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div style="float: right; margin-top: 5px;">
+                    <button class="buttonStyle" style="background-color: #d9534f;"><i class="fa fa-close" style="color: white;"></i></button>
+                    <button class="buttonStyle" style="background-color: #449d44;"><i class="fa fa-check" style="color: white;"></i></button>
+                </div>
+            </div>
+            <div class="col-sm-3 divStyle2">
+                <div class="col-sm-6">
+                    <label>Reporter:</label>
+                </div>
+                <div class="col-sm-6">
+                    <p id="reporter">name</p>
+                </div>
+                <div class="col-sm-6">
+                    <label>Created:</label>
+                </div>
+                <div class="col-sm-6">
+                    <p id="created">15-Feb-2020</p>
+                </div>
+                <div class="col-sm-6">
+                    <label>Due In:</label>
+                </div>
+                <div class="col-sm-6">
+                    <p id="dueIn">4 Days</p>
+                </div>
+                <div class="col-sm-6">
+                    <label>Updated:</label>
+                </div>
+                <div class="col-sm-6">
+                    <p id="type">4 Mins Ago</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

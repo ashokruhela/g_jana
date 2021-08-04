@@ -1,0 +1,47 @@
+.AnyTime-win {
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid #27A3E2;
+    border-radius: 5px;
+}
+
+.AnyTime-pkr .AnyTime-x-btn {
+    background-color: red;
+    border: 1px solid white;
+    color: black;
+    margin: 0.15em 0.2em 0 0;
+}
+
+.AnyTime-pkr .AnyTime-hdr {
+    background-color: #27A3E2;
+    color: white;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.AnyTime-pkr th.AnyTime-dow {
+    background-color: #27A3E2;
+}
+
+.AnyTime-pkr .AnyTime-dom-btn {
+    background-color: #D7EBF9;
+    color: #2779AA;
+}
+
+.AnyTime-pkr .AnyTime-btn {
+    color: black;
+    border: 1px solid #27A3E2;
+}
+
+.AnyTime-pkr .AnyTime-dom-btn active {
+    color: white;
+}
+
+.AnyTime-pkr .AnyTime-lbl {
+    color: black;
+}
+
+.AnyTime-pkr .AnyTime-cur-btn {
+    background-color: #27A3E2;
+}
