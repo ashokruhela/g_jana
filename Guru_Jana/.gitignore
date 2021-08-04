@@ -1,0 +1,20 @@
+
+# Ignore venv directory
+**/venv
+
+# Ignore all pyc files
+*.pyc
+
+# Ignore migrations directory
+**/migrations
+
+# Ignore DS_Store
+.DS_Store
+
+# Ignore .idea (pycharm files)
+.idea/
+.settings/
+.project
+*.iml
+*.classpath
+bin/
